@@ -9,20 +9,32 @@
     <script src="static/jquery-3.3.1.min.js"></script>
   </head>
   <body>
-    <form enctype="multipart/form-data" action="/commands" method="post">
+    <form
+      enctype="multipart/form-data"
+      action="http://localhost:5000/folder"
+      method="post"
+    >
       <label>创建文件夹:</label>
-      <input type="text" placeholder="Enter folder name..." id="folder" />
+      <input type="text" placeholder="Enter folder name..." name="folder" />
+      <input
+        type="text"
+        placeholder="Enter project name..."
+        name="project_id"
+      />
       <button type="submit" id="submit">执行</button>
       <div id="results">
         <tr ng-repeat="element in word counts">
-          <td></td>
+          <td>
+            <textarea name="text" rows="5" cols="40">{{stdouts}}</textarea>
+          </td>
         </tr>
       </div>
     </form>
     <label>命令</label>
     <input type="text" placeholder="Enter CMD..." id="cmd" />
-    <button id="click-me">单执行</button>
+    <button id="click-me">执行</button>
     <p id="stdout"></p>
+    <!-- <p id="stdout"></p> -->
   </body>
   <script>
     $("#click-me").click(function (event) {
